@@ -49,13 +49,13 @@ This project demonstrates how to build a web application for managing writers an
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/nranjbaran/java-kotlin-ws.git
    ```
 
 2. Build and run the application:
    ```bash
    ./gradlew build
-   java -jar build/libs/your-application.jar
+   java -jar build/libs/java-kotlin-ws.jar
    ```
 
 ## Testing
