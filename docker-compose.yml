@@ -1,0 +1,35 @@
+version: "2.4"
+services:
+  java:
+    image: openjdk:17
+    volumes:
+      - ./:/app
+    command: bash -c "cd /app && java -jar partner-service-1.0.1-all.jar --port=8032"
+    ports:
+      - 8032:8032
+
+  postgres:
+    container_name: postgres_container
+    image: timescale/timescaledb-ha:pg14-latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:

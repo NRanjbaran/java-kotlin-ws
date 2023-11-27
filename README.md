@@ -72,3 +72,12 @@ Contributions are welcome! Please follow the standard GitHub flow (fork the repo
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+ADD these to README in github
+
+-- used Record to create book and writer dto to transfer data between client and server
+-- writerEventType is an enum to ADD or DELETE writer. if writer will be deleted, all related books will delete.
+-- goal of using of Dao is to be more readable between simple CRUD operations and complex operations on entities such as complex queries
+-- PublishedInfoManager is for relation between kotlin or rest services and java, contains services getWriter with its books by writer code
+  get books between specific date times
+-- WriterInfoDto is provides final data for the client
